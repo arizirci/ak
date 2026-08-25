@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap');
-
 :root {
   --bg-color: #0a0b10;
   --primary: #00f3ff;
@@ -18,7 +16,6 @@
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -37,7 +34,6 @@
 
 body {
   background: var(--bg-color);
-  /* Cyberpunk Grid Background Pattern */
   background-image: 
     radial-gradient(circle at 15% 15%, rgba(112, 0, 255, 0.15) 0%, transparent 40%),
     radial-gradient(circle at 85% 85%, rgba(0, 243, 255, 0.15) 0%, transparent 40%),
@@ -63,12 +59,11 @@ nav {
   top: 0;
   width: 100%;
   z-index: 100;
-  transition: all 0.3s ease;
 }
 
 nav .logo {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: #fff;
   text-transform: uppercase;
@@ -105,7 +100,7 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* Hero Header */
+/* Hero Section */
 header {
   height: 100vh;
   display: flex;
@@ -114,7 +109,6 @@ header {
   align-items: center;
   text-align: center;
   padding: 0 1rem;
-  position: relative;
   background: radial-gradient(circle, rgba(0, 243, 255, 0.08) 0%, rgba(10, 11, 16, 0.95) 70%);
 }
 
@@ -165,7 +159,6 @@ section h2 {
   letter-spacing: 2px;
   text-transform: uppercase;
   text-shadow: 0 0 12px var(--secondary);
-  position: relative;
 }
 
 section h2::after {
@@ -186,7 +179,7 @@ section h2::after {
   gap: 2rem;
 }
 
-/* Futuristic Card Design */
+/* Futuristic Cards */
 .card {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
@@ -197,10 +190,11 @@ section h2::after {
   text-align: center;
   position: relative;
   overflow: hidden;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-/* Light Sweep effect on hover */
 .card::before {
   content: '';
   position: absolute;
@@ -222,7 +216,6 @@ section h2::after {
   box-shadow: 0 10px 30px rgba(0, 243, 255, 0.25), inset 0 0 15px rgba(0, 243, 255, 0.1);
 }
 
-/* Contact Styling */
 #contact p {
   text-align: center;
   font-size: 1.2rem;
@@ -263,16 +256,10 @@ footer a:hover {
   filter: drop-shadow(0 0 8px var(--primary));
 }
 
-/* Animations */
+/* Keyframe Animations */
 @keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes typing {
@@ -292,25 +279,16 @@ footer a:hover {
     padding: 1rem;
     gap: 0.8rem;
   }
-
-  nav .links {
-    display: flex;
-    gap: 10px;
-  }
-
   nav a {
-    margin: 0 5px;
+    margin: 0 8px;
     font-size: 0.9rem;
   }
-
   header h1 {
     font-size: 2.2rem;
   }
-
   header p {
     font-size: 0.95rem;
   }
-
   section {
     padding: 3rem 1.2rem;
   }
