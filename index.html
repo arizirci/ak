@@ -4,83 +4,423 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio of Ariz Abdul Khaliq | Web Developer & Automation Expert" />
-  <title>Ariz Abdul Khaliq - Portfolio</title>
+  <title>Ariz Abdul Khaliq - Cyber Portfolio</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Orbitron & Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- External Futuristic CSS Link -->
-  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    :root {
+      --bg-color: #05060a;
+      --primary: #00f3ff;
+      --secondary: #ff0055;
+      --accent: #7000ff;
+      --glass-bg: rgba(10, 15, 30, 0.5);
+      --glass-border: rgba(0, 243, 255, 0.3);
+      --text-color: #e0e6ed;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Holographic Cyber Screen CRT Lines Effect */
+    body::before {
+      content: " ";
+      display: block;
+      position: fixed;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                  linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      z-index: 99;
+      background-size: 100% 3px, 6px 100%;
+      pointer-events: none;
+    }
+
+    body {
+      background: var(--bg-color);
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 85, 0.1) 0%, transparent 50%),
+        linear-gradient(to right, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(5, 6, 10, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 243, 255, 0.1);
+    }
+
+    nav .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+      cursor: pointer;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      text-shadow: 0 0 10px var(--primary);
+    }
+
+    /* Hero Section */
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      background: linear-gradient(90deg, #fff, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.5));
+    }
+
+    header p {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: var(--primary);
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px var(--primary);
+    }
+
+    /* Grid Sections */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 3rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px var(--secondary);
+    }
+
+    .skills, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Futuristic Cyber Card */
+    .card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 2.2rem;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .card:hover::before {
+      left: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      border-color: var(--primary);
+      box-shadow: 0 0 25px rgba(0, 243, 255, 0.4), inset 0 0 15px rgba(0, 243, 255, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: rgba(5, 6, 10, 0.9);
+      border-top: 1px solid var(--glass-border);
+    }
+
+    footer a {
+      margin: 0 15px;
+      color: var(--primary);
+      font-size: 1.8rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    footer a:hover {
+      transform: translateY(-5px) scale(1.2);
+      filter: drop-shadow(0 0 12px var(--secondary));
+    }
+
+    /* CYBERPUNK MAINTENANCE MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(3, 4, 8, 0.85);
+      backdrop-filter: blur(15px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-box {
+      background: rgba(10, 15, 25, 0.95);
+      border: 2px solid var(--secondary);
+      box-shadow: 0 0 30px rgba(255, 0, 85, 0.5), inset 0 0 20px rgba(255, 0, 85, 0.2);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      transform: scale(0.7);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: scale(1);
+    }
+
+    .modal-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      animation: blink 1.2s infinite alternate;
+    }
+
+    .modal-box h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--secondary);
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .modal-box p {
+      color: #b0c0d0;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .status-badge {
+      display: inline-block;
+      background: rgba(255, 0, 85, 0.15);
+      border: 1px solid var(--secondary);
+      color: #ff3377;
+      font-family: 'Orbitron', sans-serif;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+    }
+
+    .close-btn {
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      letter-spacing: 2px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .close-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 0, 85, 0.8);
+    }
+
+    @keyframes blink {
+      0% { opacity: 0.3; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1.05); }
+    }
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; gap: 0.8rem; padding: 1rem; }
+      header h1 { font-size: 2.5rem; }
+      header p { font-size: 0.95rem; }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav>
-    <div class="logo">Ariz</div>
+    <div class="logo trigger-maintenance">Ariz</div>
     <div class="links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" class="trigger-maintenance">About</a>
+      <a href="#skills" class="trigger-maintenance">Skills</a>
+      <a href="#projects" class="trigger-maintenance">Projects</a>
+      <a href="#contact" class="trigger-maintenance">Contact</a>
     </div>
   </nav>
 
+  <!-- Hero Header -->
   <header>
     <h1>Ariz Abdul Khaliq</h1>
-    <p>Web Developer & Automation Expert</p>
+    <p>WEB DEVELOPER & AUTOMATION EXPERT</p>
   </header>
 
+  <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
-    <p style="text-align:center; max-width:700px; margin:auto;">I am Ariz Abdul Khaliq, a creative web developer and automation expert. I specialize in building stylish, responsive websites with smooth animations and advanced task automation.</p>
+    <p style="text-align:center; max-width:700px; margin:auto; color: #b0c0d0;">I am Ariz Abdul Khaliq, a creative web developer and automation expert. I specialize in building stylish, responsive websites with smooth animations and advanced task automation.</p>
   </section>
 
+  <!-- Skills Section -->
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills">
-      <div class="card">HTML5 / CSS3</div>
-      <div class="card">JavaScript (ES6+)</div>
-      <div class="card">Python Automation</div>
-      <div class="card">React.js & Tailwind</div>
-      <div class="card">Node.js & APIs</div>
-      <div class="card">Responsive Design</div>
+      <div class="card trigger-maintenance">HTML5 / CSS3</div>
+      <div class="card trigger-maintenance">JavaScript (ES6+)</div>
+      <div class="card trigger-maintenance">Python Automation</div>
+      <div class="card trigger-maintenance">React.js & Tailwind</div>
+      <div class="card trigger-maintenance">Node.js & APIs</div>
+      <div class="card trigger-maintenance">Responsive Design</div>
     </div>
   </section>
 
+  <!-- Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
-      <div class="card">Portfolio Website</div>
-      <div class="card">Task Automation Script</div>
-      <div class="card">E-commerce Landing Page</div>
-      <div class="card">Custom Web Dashboard</div>
+      <div class="card trigger-maintenance">Portfolio Website</div>
+      <div class="card trigger-maintenance">Task Automation Script</div>
+      <div class="card trigger-maintenance">E-commerce Landing Page</div>
+      <div class="card trigger-maintenance">Custom Web Dashboard</div>
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact</h2>
-    <p style="text-align:center;">Email me at: <strong>arizirci@gmail.com</strong></p>
+    <p style="text-align:center; font-size: 1.2rem;">Email me at: <strong style="color: var(--primary); text-shadow: 0 0 10px var(--primary);">arizirci@gmail.com</strong></p>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Ariz Abdul Khaliq</p>
-    <a href="#">&#x1F465;</a>
-    <a href="#">&#x1F4F1;</a>
-    <a href="#">&#x1F4E7;</a>
+    <p style="color: #6a798d; margin-bottom: 1rem;">&copy; 2025 Ariz Abdul Khaliq. All Rights Reserved.</p>
+    <a href="#" class="trigger-maintenance">&#x1F465;</a>
+    <a href="#" class="trigger-maintenance">&#x1F4F1;</a>
+    <a href="#" class="trigger-maintenance">&#x1F4E7;</a>
   </footer>
 
-  <script>
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
+  <!-- UNDER MAINTENANCE MODAL -->
+  <div class="modal-overlay" id="maintenanceModal">
+    <div class="modal-box">
+      <div class="modal-icon">⚠️</div>
+      <h3>Under Maintenance</h3>
+      <p>This module/section is currently undergoing upgrades & optimization. Access is temporarily restricted.</p>
+      <div class="status-badge">STATUS: SYSTEM_OFFLINE</div>
+      <br>
+      <button class="close-btn" id="closeModalBtn">DISMISS</button>
+    </div>
+  </div>
 
-    sections.forEach(section => observer.observe(section));
+  <script>
+    const modal = document.getElementById('maintenanceModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const triggers = document.querySelectorAll('.trigger-maintenance');
+
+    // Open Modal when clicking any link or card
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('active');
+      });
+    });
+
+    // Close Modal
+    closeModalBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    // Close Modal when clicking outside the box
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
   </script>
 </body>
 </html>
